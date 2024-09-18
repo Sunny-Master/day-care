@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link 
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'css/babies/baby-index.css' %}"
+/>
+{% endblock %}
+
+{% block content %}
+
+<section class="page-header">
+  <h1>Baby List</h1>
+  <img src="{% static 'images/baby-1.png' %}" alt="A happy baby" />
+  <img src="{% static 'images/baby-2.png' %}" alt="A happy baby" />
+  <img src="{% static 'images/baby-3.png' %}" alt="A happy baby" />
+  <img src="{% static 'images/baby-4.png' %}" alt="A happy baby" />
+</section>
+
+<section class="card-container">
+  {% for baby in babies %}
+  <div class="card">
+    <div class="card-content">
+      <div class="card-img-container">
+        <img 
+          src="{% static 'images/baby.png' %}" 
+          alt="A playful and happy baby"
+        >
+      </div>
+      <h2 class="card-title">{{ baby.name }}</h2>
+      {% if baby.age > 0 %}
+        <p>A {{ baby.age }} year old toddler, {{ baby.description }}</p>
+      {% else %}
+        <p>An infant, {{ baby.description }}</p>
+      {% endif %}
+      <p><small>Dietary Restrictions: only {{ baby.diet }} food</small></p>
+      </div>
+    </div>
+  {% endfor %}
+</section>
+
+{% endblock %}

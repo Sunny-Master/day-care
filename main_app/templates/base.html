@@ -1,0 +1,42 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link
+    rel="shortcut icon"
+    type="image/png"
+    href="{% static 'images/daycare-logo.png' %}"
+  >
+  <title>Sunny Day Care</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+  {% block head %}
+  {% endblock %}
+</head>
+<body>
+  <header>
+    <div >
+      <a href="/" class="nav-home">
+        <img 
+          src="{% static "images/daycare-logo.png" %}"
+          alt="The Day Care Logo"
+        >
+        <h1>Sunny Day Care</h1>
+      </a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="/babies">All Babies</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    {% block content %}
+    {% endblock %}
+  </main>
+</body>
+</html>
