@@ -52,8 +52,27 @@ header {
   border-bottom: var(--borders);
 }
 
+header img {
+  height: 50px;
+  margin-left: 20px;
+  padding: 5px;
+}
+
 nav {
   margin: 10px;
+}
+
+.nav-home {
+  display: flex;
+  justify-content: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  color: black;
 }
 
 ul {
@@ -204,23 +223,8 @@ nav li {
     font-size: var(--font-xtreme);
   }
   
-  header img {
-    height: 50px;
-    margin-left: 20px;
-    padding: 5px;
-  }
 
-  .nav-home {
-    display: flex;
-  }
 
-  a {
-    text-decoration: none;
-  }
-
-  a:visited {
-    color: black;
-  }
   
   .page-header img:first-of-type {
     margin-left: 25px;

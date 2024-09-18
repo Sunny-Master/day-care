@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static "css/home.css" %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="logo-container">
+  <div class="care-container">
+    <img src="{% static 'images/daycare-logo.png' %}" alt="The logo for Sunny Day Care" />
+  </div>
+  <h1>Sunny Day Care</h1>
+</section>
+
+{% endblock %}
