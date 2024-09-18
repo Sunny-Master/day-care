@@ -1,18 +1,6 @@
 from django.shortcuts import render
+from .models import Baby
 
-class Baby:
-  def __init__(self, name, diet, description, age):
-    self.name = name
-    self.diet = diet
-    self.description = description
-    self.age = age
-
-babies = [
-  Baby('April', 'vegetarian', 'always playful.', 1),
-  Baby('May', 'vegan', 'likes to fiddle with things.', 3),
-  Baby('June', 'lactose-free', 'hyperactive at all times.', 2),
-  Baby('August', 'nut-free', 'calm and curious.', 0)
-]
 # Create your views here.
 
 def home(request):
@@ -22,4 +10,9 @@ def about(request):
   return render(request, 'about.html')
 
 def baby_index(request):
-  return render(request, 'babies/index.html', { 'babies': babies })
+  babies = Baby.objects.all()
+  return render(request, 'babies/index.html', { 'babies': babies})
+
+def baby_detail(request, baby_id):
+  baby = Baby.objects.get(id=baby_id)
+  return render(request, 'babies/detail.html', { 'baby': baby})
