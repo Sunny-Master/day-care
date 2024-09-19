@@ -12,4 +12,4 @@ class Baby(models.Model):
     return self.name
   
   def get_absolute_url(self):
-    return reverse('cat-detail', kwargs={'cat_id': self.id})
+    return reverse('baby-detail', kwargs={'baby_id': self.id})

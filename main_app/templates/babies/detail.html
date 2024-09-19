@@ -12,20 +12,24 @@
 {% block content %}
 
 <section class="care-container">
-  <div class="cat-img">
+  <div class="baby-img">
     <img 
       src="{% static 'images/baby.png' %}" 
       alt="A playful and happy baby"
     >
   </div>
-  <div class="cat-details">
+  <div class="baby-details">
     <h1>{{ baby.name }}</h1>
     {% if baby.age > 0 %}
       <h2>A {{ baby.age }} year old toddler; {{ baby.description }}</h2>
     {% else %}
       <h2>An infant, {{ baby.description }}</h2>
     {% endif %}
-    <p>Dietary Restrictions: only {{ baby.diet }} food</p>
+    <p>Dietary Restrictions: {{ baby.diet }} food</p>
+    <div class="care-actions">
+      <a href="{% url 'baby-update' baby.id %}" class="btn warn">Edit</a>
+      <a href="{% url 'baby-delete' baby.id %}" class="btn danger">Delete</a>
+    </div>
   </div>
 </section>
 

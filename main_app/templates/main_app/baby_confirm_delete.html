@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="page-header">
+  <h1>Remove baby?</h1>
+  <img src="{% static 'images/nerd-baby.png' %}" alt="A baby using a computer"/>
+</div>
+<h2>Are you sure you want to remove {{baby.name}} from your care?</h2>
+
+<form action="" method="post" class="form">
+  {% csrf_token %}
+  <a 
+    href="{% url 'baby-detail' baby.id %}" 
+    class="btn secondary"
+  >
+    Cancel
+  </a>
+  <button type="submit" class="btn danger">Remove {{baby.name}}!</button>
+</form>
+
+{% endblock %}

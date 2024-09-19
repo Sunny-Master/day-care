@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Baby
 
 # Create your views here.
@@ -21,4 +21,11 @@ def baby_detail(request, baby_id):
 class BabyCreate(CreateView):
   model = Baby
   fields = ['name', 'diet', 'description', 'age']
-  
+
+class BabyUpdate(UpdateView):
+  model = Baby
+  fields = ['diet', 'description', 'age']
+
+class BabyDelete(DeleteView):
+  model = Baby
+  success_url = '/babies/'
