@@ -19,7 +19,7 @@
 <body>
   <header>
     <div >
-      <a href="/" class="nav-home">
+      <a href="{% url "home" %}" class="nav-home">
         <img 
           src="{% static "images/daycare-logo.png" %}"
           alt="The Day Care Logo"
@@ -29,8 +29,9 @@
     </div>
     <nav>
       <ul>
-        <li><a href="/babies">All Babies</a></li>
-        <li><a href="/about">About</a></li>
+        <li><a href="{% url "baby-index" %}">All Babies</a></li>
+        <li><a href="{% url "baby-create" %}">Add a Baby</a></li>
+        <li><a href="{% url "about" %}">About</a></li>
       </ul>
     </nav>
   </header>
