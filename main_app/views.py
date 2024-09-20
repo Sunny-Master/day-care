@@ -36,6 +36,10 @@ def add_feeding(request, baby_id):
     new_feeding.save()
   return redirect('baby-detail', baby_id=baby_id)
 
+def assoc_toy(request, baby_id, toy_id):
+  Baby.objects.get(id=baby_id).toys.add(toy_id)
+  return redirect('baby-detail', baby_id=baby_id)
+
 class BabyCreate(CreateView):
   model = Baby
   fields = ['name', 'diet', 'description', 'age']
