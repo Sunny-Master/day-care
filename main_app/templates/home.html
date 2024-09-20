@@ -11,7 +11,16 @@
   <div class="care-container">
     <img src="{% static 'images/daycare-logo.png' %}" alt="The logo for Sunny Day Care" />
   </div>
-  <h1>Sunny Day Care</h1>
 </section>
-
+{% if not user.is_authenticated %}
+  <section>
+    <form action="{% url 'home' %}" method="post" class="login">
+      <h1>Login</h1>
+      {% csrf_token %}
+      {{ form.as_p }}
+      <input type="hidden" name="next" value="{{ next }}">
+      <button type="submit" class="btn submit">Login</button>
+    </form>
+  </section>
+{% endif %}
 {% endblock %}
