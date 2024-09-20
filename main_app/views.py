@@ -18,9 +18,10 @@ def baby_index(request):
 
 def baby_detail(request, baby_id):
   baby = Baby.objects.get(id=baby_id)
+  toys_baby_doesnt_have = Toy.objects.exclude(id__in = baby.toys.all().values_list('id'))
   feeding_form = FeedingForm()
   return render(request, 'babies/detail.html', { 
-    'baby': baby, 'feeding_form': feeding_form
+    'baby': baby, 'feeding_form': feeding_form, 'toys': toys_baby_doesnt_have
   })
 
 def add_feeding(request, baby_id):
